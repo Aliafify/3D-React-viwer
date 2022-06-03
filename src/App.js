@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import {Canvas} from 'react-three-fiber'
+import {OrbitControls,Stars} from '@react-three/drei'
+ 
+import { Physics, usePlane, useSphere } from "@react-three/cannon"
+function Plane() {
+  const [ref] = usePlane(() => ({
+    rotation: [-Math.PI / 2, 0, 0],
+  }));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <mesh ref={ref} rotation={[-Math.PI / 2, 0, 0]}>
+      <planeBufferGeometry attach="geometry" args={[100, 100]} />
+      <meshLambertMaterial attach="material" color="lightblue" />
+    </mesh>
+  );
+}
+function Box() {
+  const [ref, api] = useSphere(() => ({ mass: 0, position: [0, 2, 0] }));
+  return (
+    <mesh
+     
+      ref={ref}
+      position={[0, 2, 0]}
+    >
+      <boxBufferGeometry attach="geometry" />
+      <meshLambertMaterial attach="material" color="#333" />
+    </mesh>
+  );
+}
+export default function App() {
+  return (
+  
+   <Canvas style={{height:'100vh'}}>
+      <OrbitControls />
+      <Stars />
+      <ambientLight intensity={0.5} />
+      <spotLight position={[1, 1, 1]} angle={0.4} />
+      <Physics>
+        <Box />
+        <Plane/>
+      </Physics>
+    </Canvas>
+    
   );
 }
 
-export default App;
+
