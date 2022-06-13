@@ -1,13 +1,190 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(168, 173, 178);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  width: 70vw;
+  height: 80vh;
+  overflow: scroll;
+  padding: 15px 10px 10px 17px;
+  box-sizing: content-box;
+  border-radius: 10px;
+  background-color: white;
+  font-family: "Relway", sans-serif;
+
+
+}
+
+/* hide scroll bar */
+::-webkit-scrollbar {
+  width: 0px;
+  /* remove scrollbar space */
+  display: none
+}
+
+/* Student Component container */
+.cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 1vw;
+  margin-bottom: 1vh;
+
+}
+
+/* student Name */
+.name {
+  font-size: 3vw;
+}
+
+/* student details */
+.discription {
+  color: rgb(205, 205, 195);
+  font-size: 1.5vw;
+  font-weight: 300;
+  padding-left: 1vw;
+}
+
+/* student photo */
+.img {
+  border-radius: 50%;
+  border: 0.01ex solid rgb(119, 116, 116);
+  width: 9vw;
+  height: 9vw;
+  display: flex;
+  justify-content: center;
+  margin: 1vw;
+}
+
+/* Search bar */
+.search {
+  border: 0px;
+  border-bottom: 1px solid rgb(115, 114, 114);
+  width: 100%;
+  height: 4vh;
+  outline: none;
+
+
+}
+
+input[type=search]:focus {
+  background-color: lightblue;
+}
+
+/* show grades button*/
+#plus-icon {
+  position: sticky;
+  left: 70vw;
+  cursor: pointer;
+  width: 20%
+}
+
+.icon {
+  border: 0px;
+  height: 4vh;
+  width: 4vh;
+  background-color: rgba(240, 248, 255, 0);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pluse {
+  background-image: url("./icons/plus.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.minus {
+  background-image: url("./icons/minus.png");
+
+}
+
+/* Grades*/
+.grade-list {
+  list-style-type: none;
+  color: rgb(205, 205, 195);
+  font-size: 1.5vw;
+  font-weight: 300;
+  position: relative;
+  top: 0px;
+  left: 11vw;
+}
+
+/* tages and tages input field*/
+.tage {
+  background-color: rgb(219, 219, 219);
+  color: black;
+  margin: 1vh;
+  border-radius: 5px;
+  padding: 0.5vw;
+}
+
+.add-tage {
+  height: 1.5vw;
+  font-size: 1vw;
+  width: 15 vw;
+  margin: 3vh 0 1vh 2vw;
+
+}
+
+.tages-cont {
+  display: flex;
+  align-items: stretch;
+  width: 40vw;
+}
+
+/* mobile view */
+@media only screen and (max-width:600px) {
+  .container {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 20vh;
+
+  }
+
+  .cont {
+    display: flex;
+    align-items: stretch;
+    margin:10px 0px 10px 0px;
+    height: fit-content;
+    
+  }
+/* show grades button */
+.icon{
+  margin-top: 20px;
+}
+  #plus-icon {
+    position: sticky;
+    left: 90vw;
+    cursor: pointer;
+    
+  }
+  /* student photo */
+  .img{
+    width: 50px;
+    height: 50px;
+  }
+/* tages */
+.add-tage {
+  font-size: 10px;
+  width: 15 vw;
+  height: 12px;
+
+}
+.tage{
+  font-size: 12px;
+}
+/* Student Name  */
+.name{
+  font-size: 15px;
+}
+/* student content */
+.discription{
+  font-size: 12px;
+  margin-left: 7px;
+}
 }
